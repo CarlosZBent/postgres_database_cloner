@@ -17,8 +17,8 @@ class Users(SQLModel, table=True):
 	email: str
 
 
-conn1 = Connection('postgresql+psycopg2://postgres:CeZb2332@localhost:5432/postgres')
-conn2 = Connection('postgresql+psycopg2://postgres:CeZb2332@localhost:5432/postgres')
+conn1 = Table('postgresql+psycopg2://postgres:CeZb2332@localhost:5432/postgres')
+conn2 = Table('postgresql+psycopg2://postgres:CeZb2332@localhost:5432/postgres')
 # conn1.ping(Users)
 # conn1.get_data(Users)
 

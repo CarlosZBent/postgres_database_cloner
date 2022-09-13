@@ -8,14 +8,14 @@ from sqlmodel import (
 from typing import Optional
 
 
-class Connection:
+class Table:
     def __init__(self, url) -> None:
         self.url = url
         self.session = Session
         self.engine = create_engine(url=url)
 
     def __str__(self) -> str:
-        return 'Conecction with string {}'.format(self.url)
+        return 'Conection with string {}'.format(self.url)
 
     def ping(self, model):
         with self.session(self.engine) as session:
@@ -28,12 +28,23 @@ class Connection:
                 print('Not connected')
                 return False
 
-    def get_data(self, model):
+    def copy(self, model):
         with self.session(self.engine) as session:
             statement = select(model)
             results = session.exec(statement)
             for result in results:
                 print(result)
+
+    def paste(self, model):
+
+        def insert(*args):
+            
+            for i in *args:
+                i = x
+
+            new_data = model(
+                i=i
+                )
 
     
 class Operations:
